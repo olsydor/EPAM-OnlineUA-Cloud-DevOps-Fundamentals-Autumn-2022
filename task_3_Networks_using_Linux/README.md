@@ -1,6 +1,6 @@
 
 # EPAM-DevOps22: Linux Networking
-![](/olsydor/EPAM-OnlineUA-Cloud-DevOps-Fundamentals-Autumn-2022/tree/main/task_3_Networks_using_Linux/prntscrn/Task_Linux_Net.png)
+![](https://github.com/olsydor/EPAM-OnlineUA-Cloud-DevOps-Fundamentals-Autumn-2022/blob/main/task_3_Networks_using_Linux/prntscrn/Task_Linux_Net.png)
 
 ### Networks:
 + Net1 - 192.168.0.0/24
