@@ -37,7 +37,7 @@
 
 __/etc/netplan/*yaml__</br>
 
-![](https://github.com/olsydor/EPAM-OnlineUA-Cloud-DevOps-Fundamentals-Autumn-2022/tree/main/task_3_Networks_using_Linux/prntscrn/Server-netplan.png)
+![Server-netplan](prntscrn/Server-netplan.png)
 
 1.2  Apply the settings using the following command:
 ```
@@ -47,37 +47,37 @@ __/etc/netplan/*yaml__</br>
 
 __/etc/dhcp/dhcpd.conf__</br>
 
-![](https://github.com/olsydor/EPAM-OnlineUA-Cloud-DevOps-Fundamentals-Autumn-2022/tree/main/task_3_Networks_using_Linux/prntscrn/Server-dhcpd.png)
+![dhcpd.conf](prntscrn/Server-dhcpd.png)
 
 __/etc/default/isc-dhcp-server__</br>
 
-![](/Server-isc.png)
+![isc-dhcp-server](/Server-isc.png)
 
 1.4 Checking the operation of the DHCP service:
 
 ```
  sudo systemctl status isc-dhcp-server.service
 ```
-![](https://github.com/olsydor/EPAM-OnlineUA-Cloud-DevOps-Fundamentals-Autumn-2022/tree/main/task_3_Networks_using_Linux/prntscrn/Server-DHCP-service.png)
+![](prntscrn/Server-DHCP-service.png)
 
 1.5 Сonfigure the operation of network ports for Client-3 and Client-2. One port works on the principle of getting a dynamic address, and the second port sets statics, according to the task:</br>
 
 __Client-3__</br>
-![](/client3-ip-addresses.png)</br>
+![Client-3](prntscrn/client3-ip-addresses.png)</br>
 
 __Client-2__</br>
-![](https://github.com/olsydor/EPAM-OnlineUA-Cloud-DevOps-Fundamentals-Autumn-2022/tree/main/task_3_Networks_using_Linux/prntscrn/client2-ip-addresses.png)
+![Client-2]( prntscrn/client2-ip-addresses.png)
 
 1.6 Сheking the connection between computers using the `ping` and `traceroute` command:
 
 __Server-1__</br>
-![](https://github.com/olsydor/EPAM-OnlineUA-Cloud-DevOps-Fundamentals-Autumn-2022/tree/main/task_3_Networks_using_Linux/prntscrn/Server-ping-traceroute.png)
+![Server-1]( prntscrn/Server-ping-traceroute.png)
 
 __Client-3__</br>
-![](https://github.com/olsydor/EPAM-OnlineUA-Cloud-DevOps-Fundamentals-Autumn-2022/tree/main/task_3_Networks_using_Linux/prntscrn/client3-ping-traceroute.png)
+![Client-3]( prntscrn/client3-ping-traceroute.png)
 
 __Client-2__</br>
-![](https://github.com/olsydor/EPAM-OnlineUA-Cloud-DevOps-Fundamentals-Autumn-2022/tree/main/task_3_Networks_using_Linux/prntscrn/client2-ping-traceroute.png)
+![Client-2]( prntscrn/client2-ping-traceroute.png)
 
 **2. CONFIGURING NETWORK TRAFFIC ON A CLIENT VIRTUAL PORT.** </br>
 
@@ -88,46 +88,46 @@ __Client-2__</br>
 | Client-2 |  Server-1|172.17.25.0 | 255.255.255.0 | 10.91.15.11 |
 | Client-2 | Net4 | 172.17.35.0 | 255.255.255.0 |  172.16.15.15 |
 
-2.2 Adding two addresses to lo interface on Client-3.</br>
+2.2 Add two addresses to lo interface on Client-3.</br>
 
-![](https://github.com/olsydor/EPAM-OnlineUA-Cloud-DevOps-Fundamentals-Autumn-2022/tree/main/task_3_Networks_using_Linux/prntscrn/Add-2-virtual-ip-client-1.png)
+![Add two addresses to lo interface on Client-3]( prntscrn/Add-2-virtual-ip-client-1.png)
 
-2.3 Adding route from Client-2 to Server-1:</br>
+2.3 Add route from Client-2 to Server-1:</br>
 
-![](https://github.com/olsydor/EPAM-OnlineUA-Cloud-DevOps-Fundamentals-Autumn-2022/tree/main/task_3_Networks_using_Linux/prntscrn/Add-route-Client2.png)
+![Add route from Client-2 to Server-1]( prntscrn/Add-route-Client2.png)
 
-2.4 Adding route from Server-1 to Client-3:</br>
+2.4 Add route from Server-1 to Client-3:</br>
 
-![](https://github.com/olsydor/EPAM-OnlineUA-Cloud-DevOps-Fundamentals-Autumn-2022/tree/main/task_3_Networks_using_Linux/prntscrn/Add-route-Server.png) 
+![Add route from Server-1 to Client-3]( prntscrn/Add-route-Server.png) 
 
-2.5 Checking the connection between Client-2 and Client-3`s virtual port:</br>
+2.5 Check the connection between Client-2 and Client-3`s virtual port:</br>
 
-![](https://github.com/olsydor/EPAM-OnlineUA-Cloud-DevOps-Fundamentals-Autumn-2022/tree/main/task_3_Networks_using_Linux/prntscrn/Ping-route-Client-2.png)
+![Check the connection between Client-2 and Client-3`s virtual port]( prntscrn/Ping-route-Client-2.png)
 
-2.6 Adding a route between Client-3 and Client-2 via the Net4 network and checking connections:</br>
+2.6 Add a route between Client-3 and Client-2 via the Net4 network and checking connections:</br>
 
-![](https://github.com/olsydor/EPAM-OnlineUA-Cloud-DevOps-Fundamentals-Autumn-2022/tree/main/task_3_Networks_using_Linux/prntscrn/Add-route-via-Net4.png)
+![Add a route between Client-3 and Client-2 via the Net4 network and checking connections]( prntscrn/Add-route-via-Net4.png)
 
 **3. CONFIGURE THE USE OF A SUMMARY VIRTUAL NETWORK.**
 
-3.1 Using networks 172.17.25.0/24 and 172.17.35.0/24 configure routing for summarized network via Server-1:
-![](https://github.com/olsydor/EPAM-OnlineUA-Cloud-DevOps-Fundamentals-Autumn-2022/tree/main/task_3_Networks_using_Linux/prntscrn/Summarized%20network.png)
+3.1 Use networks 172.17.25.0/24 and 172.17.35.0/24 configure routing for summarized network via Server-1:
+![Use networks 172.17.25.0/24 and 172.17.35.0/24 configure routing for summarized network via Server-1:]( prntscrn/Summarized%20network.png)
 
-3.2 Replacing old IP addresses in lo interface Client-3:
+3.2 Replace old IP addresses in lo interface Client-3:
 
-![](https://github.com/olsydor/EPAM-OnlineUA-Cloud-DevOps-Fundamentals-Autumn-2022/tree/main/task_3_Networks_using_Linux/prntscrn/Set%20IP%20address%20Client3.png)
+![Replace old IP addresses in lo interface Client-3:]( prntscrn/Set%20IP%20address%20Client3.png)
 
-3.3 Adding a new route from Client-2 to Server-1:
+3.3 Add a new route from Client-2 to Server-1:
 
-![](https://github.com/olsydor/EPAM-OnlineUA-Cloud-DevOps-Fundamentals-Autumn-2022/tree/main/task_3_Networks_using_Linux/prntscrn/Add-new-route-Client2.png)
+![Add a new route from Client-2 to Server-1:]( prntscrn/Add-new-route-Client2.png)
 
 3.4 Adding a new route from Server-1 to Client-3:</br>
 
-![](https://github.com/olsydor/EPAM-OnlineUA-Cloud-DevOps-Fundamentals-Autumn-2022/tree/main/task_3_Networks_using_Linux/prntscrn/Add-new-route-Server.png)
+![]( prntscrn/Add-new-route-Server.png)
 
 3.5 Сhecking ping and traceroute from Client-2 to 172.17.0.0/18 network:
 
-![](https://github.com/olsydor/EPAM-OnlineUA-Cloud-DevOps-Fundamentals-Autumn-2022/tree/main/task_3_Networks_using_Linux/prntscrn/Cheking-new-ping.png)
+![]( prntscrn/Cheking-new-ping.png)
 
 **4. SETTING UP AN SSH CONNECTION.**
 
@@ -138,28 +138,28 @@ ssh-copy-id username@remote_host
 
 4.2 Checking connection via `ssh` from Client-3 to Server-1 and Client-2:</br>
 
-![](https://github.com/olsydor/EPAM-OnlineUA-Cloud-DevOps-Fundamentals-Autumn-2022/tree/main/task_3_Networks_using_Linux/prntscrn/Client-1-Server-1%20(ssh).png)
+![]( prntscrn/Client-1-Server-1%20(ssh).png)
 
-![](https://github.com/olsydor/EPAM-OnlineUA-Cloud-DevOps-Fundamentals-Autumn-2022/tree/main/task_3_Networks_using_Linux/prntscrn/Client-1-Client-2%20(ssh).png)
+![]( prntscrn/Client-1-Client-2%20(ssh).png)
 
 4.3 Checking connection via `ssh` from Client-2 to Client-3:</br>
 
-![](https://github.com/olsydor/EPAM-OnlineUA-Cloud-DevOps-Fundamentals-Autumn-2022/tree/main/task_3_Networks_using_Linux/prntscrn/Client-2-Client-1(ssh).png)
+![]( prntscrn/Client-2-Client-1(ssh).png)
 
 **5. SETTING FIREWALL**
 
 5.1 Configuration `iptables` on Server-1:
 
-![](https://github.com/olsydor/EPAM-OnlineUA-Cloud-DevOps-Fundamentals-Autumn-2022/tree/main/task_3_Networks_using_Linux/prntscrn/IP-tables-Server.png)
+![]( prntscrn/IP-tables-Server.png)
 
 5.2 Checking ssh connection:
 
-![](https://github.com/olsydor/EPAM-OnlineUA-Cloud-DevOps-Fundamentals-Autumn-2022/tree/main/task_3_Networks_using_Linux/prntscrn/Client-1-Server-1-new-(ssh).png)
+![]( prntscrn/Client-1-Server-1-new-(ssh).png)
 
-![](https://github.com/olsydor/EPAM-OnlineUA-Cloud-DevOps-Fundamentals-Autumn-2022/tree/main/task_3_Networks_using_Linux/prntscrn/Client2-Server(den).png)
+![]( prntscrn/Client2-Server(den).png)
 
 5.3 Checking ping connections:
 
-![](https://github.com/olsydor/EPAM-OnlineUA-Cloud-DevOps-Fundamentals-Autumn-2022/tree/main/task_3_Networks_using_Linux/prntscrn/Checking-Ping-Clien2.png)
+![]( prntscrn/Checking-Ping-Clien2.png)
 
 *End task*
