@@ -51,7 +51,7 @@ __/etc/dhcp/dhcpd.conf__</br>
 
 __/etc/default/isc-dhcp-server__</br>
 
-![isc-dhcp-server](/Server-isc.png)
+![isc-dhcp-server](prntscrn/Server-isc.png)
 
 1.4 Checking the operation of the DHCP service:
 
