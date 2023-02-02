@@ -39,6 +39,20 @@ f_non-existent_pages(){
   cat example_log | grep 404 | awk {'print $7 "\t" $11'} | sort | uniq
 }
 
+f_time-did-site-get-the-most-requests(){
+echo "What time did site get the most requests?"
+l5=`cut -d' ' -f4,5 apache_logs | sort | uniq -c | sort -k 1 -n | tail -n 1`
+l5n=`echo $l5 | cut -d' ' -f1`
+
+echo 'Request             Time'
+cut -d' ' -f4,5 apache_logs | sort | uniq -c | sort -k 1 -n | grep '5 .[0-9][0-9]'\/
+}
+
+f_search-bots-have-accessed-the-site(){
+echo "What search bots have accessed the site? (IP + UA)"
+
+cut -d' ' -f1,14 apache_logs | grep -i bot | sort | uniq | column -t
+}
 #1
 f_show_from_wich_ip_most_requesty
 #2
