@@ -27,43 +27,6 @@ resource "google_compute_subnetwork" "app_subnetwork" {
 }
 # (End-VPC-definition)
 
-
-
-#(Start-Random-id)
-
-resource "random_id" "db" {
-  byte_length = 4
-}
-
-#(END-Random-id)
-
-
-# (Start-SQL-Instance)
-resource "google_sql_database_instance" "app_sql_instance" {
-  name                = "${var.db_instance}-${random_id.db.hex}"
-  database_version    = var.db_version
-  region              = var.region
-  deletion_protection = false
-
-  settings {
-    tier = var.db_instance_tier
-  }
-}
-resource "google_sql_user" "users" {
-  name     = var.db_sql_user
-  instance = google_sql_database_instance.app_sql_instance.name
-  host     = "me.com"
-  password = "changeme"
-}
-#(Start-SQL-db)
-resource "google_sql_database" "app_sql_db" {
-  instance = google_sql_database_instance.app_sql_instance.name
-  name     = var.db_name
-}
-#(END-SQL-db)
-#(END-SQL-Instance)
-
-
 #(Start-Storage-bucket)
 
 resource "google_storage_bucket" "app_bucket" {
