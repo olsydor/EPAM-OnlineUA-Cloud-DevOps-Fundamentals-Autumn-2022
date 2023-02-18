@@ -1,5 +1,5 @@
 variable "project_id" {
-  default = "epam-autumn-2022-fp "
+  default = "epam-autumn-2022-fp"
 }
 variable "region" {
   default = "europe-central2"
@@ -10,11 +10,11 @@ variable "zone" {
 
 #(Network)
 variable "vpc_name" {
-  default = "app-vpc"
+  default = "power-app-vpc"
 }
 
 variable "subnet_name" {
-  default = "europe-central2-subnet"
+  default = "power-app-eu-central2"
 }
 variable "subnet_range" {
   default = "10.24.5.0/24"
@@ -23,13 +23,13 @@ variable "subnet_range" {
 
 #(Virtual machine)
 variable "app_name" {
-  default = "Final-project"
+  default = "final-project"
 }
 variable "ins_template_machine_type" {
   default = "e2-small"
 }
 variable "vm_instance_image_name" {
-  default = "debian-cloud/debian-9"
+  default = "debian-cloud/debian-10"
 }
 #(Virtual machine)
 
