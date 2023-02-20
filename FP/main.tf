@@ -42,7 +42,7 @@ resource "google_compute_firewall" "power-app-allow-http" {
     ports    = ["8080"]
   }
   source_ranges = ["0.0.0.0/0"]
-  target_tags   = ["http"]
+  target_tags   = ["http-server"]
 }
 # (End-VPC-definition)
 
@@ -66,9 +66,18 @@ resource "google_compute_instance" "final-project" {
     }
   }
 
-  metadata_startup_script = "docker run -d -p 8080:8080 -p 50000:50000 jenkins/jenkins:lts"
+  metadata_startup_script = <<-EOF
+    #!/bin/bash
+    apt-get update
+    apt-get install -y docker.io
+    docker run -d -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts
+  EOF
+    #from startup script jenkins/jenkins:lts
+  metadata = {
+    ssh-keys = "olsydorsb:${file("~/.ssh/id_rsa.pub")}"
+  }
 
-  tags = ["http-server", "https-server"]
+  tags = ["http-server", "ssh"]
 }
 /*
 resource "google_compute_global_address" "final_project" {
