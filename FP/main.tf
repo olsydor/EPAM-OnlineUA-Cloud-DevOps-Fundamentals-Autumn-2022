@@ -70,7 +70,7 @@ resource "google_compute_instance" "final-project" {
     #!/bin/bash
     apt-get update
     apt-get install -y docker.io
-    docker run -d -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts
+    docker run -d -p 8080:8080 -p 50000:50000 jenkins/jenkins:lts
   EOF
     #from startup script jenkins/jenkins:lts
   metadata = {
