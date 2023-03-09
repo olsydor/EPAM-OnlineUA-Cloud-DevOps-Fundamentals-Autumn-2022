@@ -68,10 +68,16 @@ resource "google_compute_instance" "final-project" {
 
   metadata_startup_script = <<-EOF
     #!/bin/bash
+    # Login to Docker Hub
+    docker login --username=olsydor --passwords=EHHb4Gzb4*
+    # Update packages and install Docker
     apt-get update
     apt-get install -y docker.io
-    docker run -d -p 8080:8080 -p 50000:50000 jenkins/jenkins:lts
+    # Pull Docker image
+    docker pull olsydor/jenkins-inst:latest
+    docker container run -d -p 8080:8080  -v jenkinsvol:/var/jenkins_home --name jenkins-inst olsydor/jenkins-inst:latest
   EOF
+    #-v jenkinsvol:/var/jenkins_home --name jenkins-inst jenkins/jenkins:latest
     #from startup script jenkins/jenkins:lts
   metadata = {
     ssh-keys = "olsydorsb:${file("~/.ssh/id_rsa.pub")}"
