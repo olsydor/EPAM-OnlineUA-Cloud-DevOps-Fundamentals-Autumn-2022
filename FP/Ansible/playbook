@@ -1,0 +1,30 @@
+---
+- hosts: 34.116.141.182
+  become: true
+  vars:
+    docker_image_name: EPAMFP_devsrc:lts
+    docker_container_name: EPAMFP_devsrc
+    docker_port: 8080
+  tasks:
+  - name: Install Docker
+    apt:
+      name: docker.io
+      state: present
+
+  - name: Install Nginx
+    apt:
+      name: nginx
+      state: present
+
+  - name: Pull Docker image
+    docker_image:
+      name: "{{ docker_image_name }}"
+      source: pull
+
+  - name: Run Docker container
+    docker_container:
+      name: "{{ docker_container_name }}"
+      image: "{{ docker_image_name }}"
+      ports:
+        - "{{ docker_port }}:{{ docker_port }}"
+      state: started
